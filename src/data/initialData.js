@@ -1,0 +1,331 @@
+export const INITIAL_CATEGORIES = [
+  {
+    id: 'paper',
+    name: 'Paper & Cardboard',
+    icon: 'FileText',
+    color: '#3B82F6', // Emerald / Blue accent
+    bgGradient: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.05) 100%)',
+    borderColor: 'rgba(59, 130, 246, 0.3)',
+    pointsPerKg: 10,
+    recyclability: 'High (95%)',
+    description: 'Corrugated boxes, newspapers, magazines, office paper, clean cartons.',
+    guidelines: 'Flatten all boxes. Remove plastic tape and metal binders. Ensure paper is clean and dry.',
+    acceptedItems: ['Cardboard Shipping Boxes', 'Newspapers & Catalogs', 'Office & Shredded Paper', 'Clean Cereal/Juice Cartons'],
+    prohibitedItems: ['Soiled Pizza Boxes', 'Wax-coated Paper', 'Used Paper Towels']
+  },
+  {
+    id: 'plastic',
+    name: 'Plastics & Polymers',
+    icon: 'PackageCheck',
+    color: '#10B981',
+    bgGradient: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%)',
+    borderColor: 'rgba(16, 185, 129, 0.3)',
+    pointsPerKg: 15,
+    recyclability: 'Medium (70%)',
+    description: 'PET water bottles, milk jugs, food containers, detergent bottles (Types 1, 2, 5).',
+    guidelines: 'Rinse out liquids & residue. Remove caps if loose. Do not bundle in plastic bags.',
+    acceptedItems: ['PET Soda & Water Bottles', 'HDPE Milk & Shampoo Jugs', 'PP Food Tubs (Yogurt/Butter)', 'Clean Plastic Trays'],
+    prohibitedItems: ['Styrofoam Packaging', 'Single-use Plastic Bags', 'Plastic Film / Wrap']
+  },
+  {
+    id: 'metal',
+    name: 'Metals & Cans',
+    icon: 'Boxes',
+    color: '#F59E0B',
+    bgGradient: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.05) 100%)',
+    borderColor: 'rgba(245, 158, 11, 0.3)',
+    pointsPerKg: 25,
+    recyclability: 'High (98%)',
+    description: 'Aluminum beverage cans, steel food tins, clean foil, scrap metal pieces.',
+    guidelines: 'Rinse cans thoroughly. Crush aluminum cans to save space. Separate non-metallic attachments.',
+    acceptedItems: ['Aluminum Beverage Cans', 'Steel & Tin Food Cans', 'Clean Aluminum Foil', 'Small Metal Hardware'],
+    prohibitedItems: ['Aerosol Cans with Liquids', 'Paint Containers', 'Pressurized Gas Tanks']
+  },
+  {
+    id: 'glass',
+    name: 'Glass & Bottles',
+    icon: 'GlassWater',
+    color: '#06B6D4',
+    bgGradient: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(8, 145, 178, 0.05) 100%)',
+    borderColor: 'rgba(6, 182, 212, 0.3)',
+    pointsPerKg: 12,
+    recyclability: 'High (100%)',
+    description: 'Clear, green, and brown glass jars, beverage bottles, glass food containers.',
+    guidelines: 'Empty and rinse glass items. Remove metal/plastic caps. Do not mix broken window glass.',
+    acceptedItems: ['Wine & Soda Bottles', 'Glass Food Jars', 'Cosmetic Glass Bottles'],
+    prohibitedItems: ['Ceramic Cookware', 'Mirror & Window Glass', 'Light Bulbs (E-Waste)']
+  },
+  {
+    id: 'ewaste',
+    name: 'E-Waste & Electronics',
+    icon: 'Cpu',
+    color: '#EC4899',
+    bgGradient: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(219, 39, 119, 0.05) 100%)',
+    borderColor: 'rgba(236, 72, 153, 0.3)',
+    pointsPerKg: 40,
+    recyclability: 'High Special (85%)',
+    description: 'Smartphones, laptops, batteries, circuit boards, cables, old home appliances.',
+    guidelines: 'Wipe personal data if applicable. Separate detachable lithium batteries. Keep dry.',
+    acceptedItems: ['Old Phones & Tablets', 'Laptops & Monitors', 'Batteries & Chargers', 'Small Home Appliances'],
+    prohibitedItems: ['Radioactive Equipment', 'Cracked CRT TVs without Casing']
+  },
+  {
+    id: 'organic',
+    name: 'Organic & Compostable',
+    icon: 'Leaf',
+    color: '#84CC16',
+    bgGradient: 'linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(101, 163, 13, 0.05) 100%)',
+    borderColor: 'rgba(132, 204, 22, 0.3)',
+    pointsPerKg: 8,
+    recyclability: 'High (100% Organic)',
+    description: 'Fruit peels, vegetable scraps, coffee grounds, garden leaves, clean cardboard mulch.',
+    guidelines: 'Place in compostable paper bags or green bins. Free of plastic stickers or twist ties.',
+    acceptedItems: ['Fruit & Vegetable Scraps', 'Coffee Grounds & Tea Bags', 'Yard Leaves & Grass', 'Eggshells'],
+    prohibitedItems: ['Plastic Packaging', 'Pet Waste', 'Treated Wood / Timber']
+  },
+  {
+    id: 'hazardous',
+    name: 'Hazardous Waste',
+    icon: 'AlertTriangle',
+    color: '#EF4444',
+    bgGradient: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.05) 100%)',
+    borderColor: 'rgba(239, 68, 68, 0.3)',
+    pointsPerKg: 30,
+    recyclability: 'Controlled Disposal',
+    description: 'Paints, solvents, motor oils, household pesticides, fluorescent light tubes.',
+    guidelines: 'Store in tightly sealed original containers. Label clearly. Handle with gloves.',
+    acceptedItems: ['Leftover Paint & Solvents', 'Motor Oil & Fluids', 'Household Cleaners & Chemicals', 'Fluorescent Tubes'],
+    prohibitedItems: ['Explosives & Ammunition', 'Biomedical Waste']
+  },
+  {
+    id: 'bulky',
+    name: 'Bulky & Furniture',
+    icon: 'Sofa',
+    color: '#A855F7',
+    bgGradient: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(147, 51, 234, 0.05) 100%)',
+    borderColor: 'rgba(168, 85, 247, 0.3)',
+    pointsPerKg: 20,
+    recyclability: 'Medium (60%)',
+    description: 'Couches, mattresses, wooden tables, metal bed frames, large cabinets.',
+    guidelines: 'Ensure item is at ground level access. Disassemble large items if possible.',
+    acceptedItems: ['Sofas & Chairs', 'Wooden Tables & Desks', 'Mattresses', 'Cabinets'],
+    prohibitedItems: ['Hazardous Construction Debris']
+  }
+];
+
+export const INITIAL_REQUESTS = [
+  {
+    id: 'REQ-9402',
+    userName: 'Elena Rostova',
+    userPhone: '+1 (555) 234-5678',
+    category: 'ewaste',
+    categoryName: 'E-Waste & Electronics',
+    estimatedWeightKg: 18,
+    itemsDescription: '2 old Dell monitors, 1 broken microwave, 5 kg assorted copper wires and chargers.',
+    address: '742 Evergreen Terrace, Sector 4, Springfield',
+    lat: 37.7749,
+    lng: -122.4194,
+    notes: 'Please buzz apartment #4B upon arrival.',
+    scheduledDate: '2026-09-28',
+    timeSlot: 'Morning (09:00 AM - 12:00 PM)',
+    priority: 'Express',
+    status: 'In Transit', // Pending, Confirmed, In Transit, Picked Up, Completed, Cancelled
+    collector: {
+      name: 'Marcus Vance',
+      vehicle: 'EcoTruck EV-04',
+      phone: '+1 (555) 987-6543',
+      rating: 4.9
+    },
+    co2OffsetKg: 43.2,
+    pointsEarned: 720,
+    createdAt: '2026-09-27T08:30:00Z',
+    photoUrl: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=600&q=80'
+  },
+  {
+    id: 'REQ-9401',
+    userName: 'David Miller',
+    userPhone: '+1 (555) 345-6789',
+    category: 'paper',
+    categoryName: 'Paper & Cardboard',
+    estimatedWeightKg: 35,
+    itemsDescription: 'Large stack of corrugated move-in boxes, folded flat and tied with string.',
+    address: '1088 Pioneer Way, Suite 200, Metro City',
+    lat: 37.7833,
+    lng: -122.4167,
+    notes: 'Boxes stored in basement garage bay #12.',
+    scheduledDate: '2026-09-27',
+    timeSlot: 'Afternoon (01:00 PM - 04:00 PM)',
+    priority: 'Normal',
+    status: 'Confirmed',
+    collector: {
+      name: 'Sarah Jenkins',
+      vehicle: 'EcoVan Green-02',
+      phone: '+1 (555) 876-5432',
+      rating: 4.8
+    },
+    co2OffsetKg: 29.75,
+    pointsEarned: 350,
+    createdAt: '2026-09-27T07:15:00Z',
+    photoUrl: null
+  },
+  {
+    id: 'REQ-9400',
+    userName: 'Aisha Patel',
+    userPhone: '+1 (555) 456-7890',
+    category: 'plastic',
+    categoryName: 'Plastics & Polymers',
+    estimatedWeightKg: 12,
+    itemsDescription: 'Clean crushed PET beverage bottles and HDPE detergent containers in green recycling bag.',
+    address: '350 Green Ridge Blvd, Apt 12C, Downtown',
+    lat: 37.7695,
+    lng: -122.4269,
+    notes: 'Will leave bag outside front door.',
+    scheduledDate: '2026-09-26',
+    timeSlot: 'Morning (09:00 AM - 12:00 PM)',
+    priority: 'Normal',
+    status: 'Completed',
+    collector: {
+      name: 'Marcus Vance',
+      vehicle: 'EcoTruck EV-04',
+      phone: '+1 (555) 987-6543',
+      rating: 4.9
+    },
+    co2OffsetKg: 18.0,
+    pointsEarned: 180,
+    createdAt: '2026-09-26T10:00:00Z',
+    photoUrl: null
+  },
+  {
+    id: 'REQ-9399',
+    userName: 'Carlos Rodriguez',
+    userPhone: '+1 (555) 567-8901',
+    category: 'bulky',
+    categoryName: 'Bulky & Furniture',
+    estimatedWeightKg: 65,
+    itemsDescription: 'Three-seater wooden sofa frame and 2 metal office chairs.',
+    address: '521 Oakwood Avenue, Westside',
+    lat: 37.7550,
+    lng: -122.4350,
+    notes: 'Driveway pickup. Easy curb access.',
+    scheduledDate: '2026-09-29',
+    timeSlot: 'Morning (09:00 AM - 12:00 PM)',
+    priority: 'Normal',
+    status: 'Pending',
+    collector: null,
+    co2OffsetKg: 52.0,
+    pointsEarned: 1300,
+    createdAt: '2026-09-27T11:45:00Z',
+    photoUrl: null
+  },
+  {
+    id: 'REQ-9398',
+    userName: 'Sophia Chen',
+    userPhone: '+1 (555) 678-9012',
+    category: 'hazardous',
+    categoryName: 'Hazardous Waste',
+    estimatedWeightKg: 8,
+    itemsDescription: '4 cans of leftover acrylic paint, 2 bottles of motor oil, 6 fluorescent bulbs.',
+    address: '89 Riverside Drive, North Harbor',
+    lat: 37.7900,
+    lng: -122.4000,
+    notes: 'Sealed safely in chemical spill bin.',
+    scheduledDate: '2026-09-28',
+    timeSlot: 'Afternoon (01:00 PM - 04:00 PM)',
+    priority: 'Express',
+    status: 'Pending',
+    collector: null,
+    co2OffsetKg: 16.0,
+    pointsEarned: 240,
+    createdAt: '2026-09-27T12:10:00Z',
+    photoUrl: null
+  },
+  {
+    id: 'REQ-9397',
+    userName: 'Robert Taylor',
+    userPhone: '+1 (555) 789-0123',
+    category: 'metal',
+    categoryName: 'Metals & Cans',
+    estimatedWeightKg: 25,
+    itemsDescription: 'Aluminum drink cans, steel food tins, and scrap brass pipe fittings.',
+    address: '144 Industrial Park Way, Gate 3',
+    lat: 37.7400,
+    lng: -122.4100,
+    notes: 'Contact security desk upon arrival.',
+    scheduledDate: '2026-09-25',
+    timeSlot: 'Evening (04:00 PM - 07:00 PM)',
+    priority: 'Normal',
+    status: 'Completed',
+    collector: {
+      name: 'Sarah Jenkins',
+      vehicle: 'EcoVan Green-02',
+      phone: '+1 (555) 876-5432',
+      rating: 4.8
+    },
+    co2OffsetKg: 45.0,
+    pointsEarned: 625,
+    createdAt: '2026-09-25T14:20:00Z',
+    photoUrl: null
+  }
+];
+
+export const COLLECTORS_LIST = [
+  { id: 'col-1', name: 'Marcus Vance', vehicle: 'EcoTruck EV-04 (Electric 3.5T)', phone: '+1 (555) 987-6543', area: 'Downtown & Sector 4', rating: 4.9 },
+  { id: 'col-2', name: 'Sarah Jenkins', vehicle: 'EcoVan Green-02 (Hybrid Heavy)', phone: '+1 (555) 876-5432', area: 'Metro City & North Harbor', rating: 4.8 },
+  { id: 'col-3', name: 'Liam O’Connor', vehicle: 'EcoTruck EV-07 (Cargo Rig)', phone: '+1 (555) 765-4321', area: 'Westside & Suburbs', rating: 4.95 },
+  { id: 'col-4', name: 'Maya Lin', vehicle: 'EcoTrike Cargo EV-01', phone: '+1 (555) 654-3210', area: 'Downtown Express Zone', rating: 5.0 }
+];
+
+export const AI_KNOWLEDGE_BASE = [
+  { item: 'pizza box', category: 'paper', cleanable: true, instructions: 'If greasy or soaked in cheese, cut off the clean lid for paper recycling and put greasy bottom in organic compost.', points: 10 },
+  { item: 'lithium battery', category: 'ewaste', cleanable: false, instructions: 'Do NOT throw in standard trash! Cover terminals with tape and submit an E-Waste request.', points: 40 },
+  { item: 'plastic soda bottle', category: 'plastic', cleanable: true, instructions: 'Rinse out remaining liquid. Crush bottle, screw cap back on tightly, and recycle with plastics.', points: 15 },
+  { item: 'old smartphone', category: 'ewaste', cleanable: false, instructions: 'Perform factory reset to clear personal data. Submit under E-Waste pickup for valuable metal recovery.', points: 50 },
+  { item: 'broken glass jar', category: 'glass', cleanable: true, instructions: 'Rinse food residue. Place glass in rigid container labeled glass to protect collection staff.', points: 12 },
+  { item: 'aluminum soup can', category: 'metal', cleanable: true, instructions: 'Rinse clean, push metal lid inside can or flatten completely. High recycling value!', points: 25 },
+  { item: 'paint thinners / solvents', category: 'hazardous', cleanable: false, instructions: 'Keep in original sealed container with toxic warning label. Request specialized Hazardous Waste pickup.', points: 30 },
+  { item: 'old couch sofa', category: 'bulky', cleanable: false, instructions: 'Schedule Bulky Pickup. Ensure clear walkway for 2-person crew extraction.', points: 20 },
+  { item: 'styrofoam packaging', category: 'plastic', cleanable: false, instructions: 'Expanded polystyrene (EPS) requires special compaction. Check local drop-off center or store dry.', points: 5 }
+];
+
+export const ECO_REWARDS = [
+  {
+    id: 'rew-1',
+    title: '$15 Organic Grocery Voucher',
+    partner: 'GreenHarvest Market',
+    costPoints: 250,
+    category: 'Voucher',
+    badge: 'Popular',
+    icon: 'ShoppingBag',
+    description: 'Get $15 off any purchase of organic produce and sustainable goods.'
+  },
+  {
+    id: 'rew-2',
+    title: 'Plant 5 Native Trees',
+    partner: 'Reforest Earth Foundation',
+    costPoints: 300,
+    category: 'Impact',
+    badge: 'Eco Champion',
+    icon: 'Trees',
+    description: 'We will plant 5 native trees in your name with GPS tracking coordinates.'
+  },
+  {
+    id: 'rew-3',
+    title: '2 Free E-Scooter Rides',
+    partner: 'Volt Mobility',
+    costPoints: 150,
+    category: 'Transport',
+    badge: 'Zero Emission',
+    icon: 'Zap',
+    description: 'Enjoy 2 unlock codes for electric scooter rides anywhere in the city.'
+  },
+  {
+    id: 'rew-4',
+    title: 'Home Compost Starter Kit',
+    partner: 'EcoCollect Gear',
+    costPoints: 500,
+    category: 'Hardware',
+    badge: 'Top Gift',
+    icon: 'Sprout',
+    description: 'Includes 10L sealed kitchen bin, bio-degradable bags, and compost accelerator.'
+  }
+];
